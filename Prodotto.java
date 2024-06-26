@@ -19,11 +19,11 @@
 
 
 public class Prodotto {
-	private int codice;
-	private String nome;
-	private String marca;
-	private double prezzo;
-	private int iva;
+	protected int codice;
+	protected String nome;
+	protected String marca;
+	protected double prezzo;
+	protected int iva;
 	
 	
 	//getter e setter
@@ -57,6 +57,21 @@ public class Prodotto {
 	}
 	
 	
+	int codiceRandom() {
+		return (int)Math.floor(Math.random()* (9000- 1000 + 1) + 1000 );
+	}
 	
+	double prezzoPiuIva() {
+		 
+		double percentuale=prezzo+((prezzo*iva)/100);
+		return percentuale;
+	}
 
+	Prodotto(int codice, String nome, String marca, double prezzo, int iva){
+		this.codice=codiceRandom();
+		this.nome=nome;
+		this.marca=marca;
+		this.prezzo=prezzo;
+		this.iva=iva;
+	}
 }
